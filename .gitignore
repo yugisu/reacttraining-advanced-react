@@ -1,0 +1,17 @@
+# Installed dependencies
+node_modules
+
+# Production
+build
+dist
+lib
+
+# Misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Bundler cache
+.cache

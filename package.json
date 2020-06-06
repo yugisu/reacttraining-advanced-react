@@ -1,0 +1,24 @@
+{
+  "name": "reacttraining-advanced-react",
+  "version": "1.0.0",
+  "private": true,
+  "author": "Dmytrii Puzyr <slymahel@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "./*"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react-app": "^5.2.1",
+    "eslint-plugin-flowtype": "4.x",
+    "eslint-plugin-import": "2.x",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "7.x",
+    "eslint-plugin-react-hooks": "2.x",
+    "prettier": "^2.0.5"
+  }
+}

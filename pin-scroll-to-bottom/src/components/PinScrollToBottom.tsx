@@ -1,12 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+
+const PINNED_THRESHOLD = 150
+
+function checkShouldPin() {
+  const { scrollHeight, clientHeight, scrollTop } = document.documentElement
+
+  return scrollHeight - clientHeight - scrollTop < PINNED_THRESHOLD
+}
 
 type Props = {
   subscribeTo: any
   children: React.ReactElement
+  pinnedThreshold?: number
 }
 
 export function PinScrollToBottom({ children, subscribeTo }: Props) {
-  useEffect(() => window.scrollTo(0, document.body.scrollHeight), [subscribeTo])
+  const [shouldPin, setShouldPin] = useState(() => checkShouldPin())
+
+  useEffect(() => {
+    const handleScroll = () => setShouldPin(checkShouldPin())
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    if (shouldPin) {
+      window.scrollTo(0, document.documentElement.scrollHeight)
+    }
+  }, [shouldPin, subscribeTo])
 
   return children
 }

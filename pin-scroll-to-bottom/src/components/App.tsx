@@ -37,7 +37,7 @@ export class App extends React.Component<unknown, State> {
             Sketch on YouTube
           </a>
         </div>
-        <PinScrollToBottom>
+        <PinScrollToBottom subscribeTo={messages}>
           <ol className="messages">
             {messages.map((message, index) => (
               <FadeIn key={index}>

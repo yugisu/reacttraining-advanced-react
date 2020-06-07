@@ -9,12 +9,11 @@ function checkShouldPin() {
 }
 
 type Props = {
-  subscribeTo: any
   children: React.ReactElement
   pinnedThreshold?: number
 }
 
-export function PinScrollToBottom({ children, subscribeTo }: Props) {
+export function PinScrollToBottom({ children }: Props) {
   const [shouldPin, setShouldPin] = useState(() => checkShouldPin())
 
   useEffect(() => {
@@ -29,7 +28,7 @@ export function PinScrollToBottom({ children, subscribeTo }: Props) {
     if (shouldPin) {
       window.scrollTo(0, document.documentElement.scrollHeight)
     }
-  }, [shouldPin, subscribeTo])
+  }, [shouldPin, children])
 
   return children
 }

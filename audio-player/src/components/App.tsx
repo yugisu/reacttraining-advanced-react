@@ -48,9 +48,9 @@ import React from 'react'
 import mario from 'static/mariobros.mp3'
 import podcast from 'static/podcast.mp3'
 
-import { AudioPlayer } from './AudioPlayer/AudioPlayer'
-import { Play, Pause, PlayPause, JumpBack, JumpForward } from './AudioPlayer/Buttons'
-import { Progress } from './AudioPlayer/Progress'
+import { AudioPlayer } from 'components/AudioPlayer/AudioPlayer'
+import { Play, Pause, PlayPause, JumpBack, JumpForward } from 'components/AudioPlayer/Buttons'
+import { Progress } from 'components/AudioPlayer/Progress'
 
 export function App() {
   return (

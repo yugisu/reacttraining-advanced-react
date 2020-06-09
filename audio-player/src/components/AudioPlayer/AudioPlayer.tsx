@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react'
 
 import { AudioPlayerContext, TAudioPlayerContext } from './Context'
-import { PlaybackState } from './types'
+import { PlaybackState, PB } from './types'
 
 type Props = {
   source: string
@@ -13,7 +13,7 @@ export function AudioPlayer({ source, children }: Props) {
 
   const [timeState, setTimeState] = useState({ current: 0, overall: 0 })
 
-  const [playbackState, setPlaybackState] = useState<PlaybackState>('paused')
+  const [playbackState, setPlaybackState] = useState<PlaybackState>(PB.PAUSED)
 
   const initializeTimeState = useCallback((e: React.SyntheticEvent<HTMLAudioElement, Event>) => {
     const target = e.target as HTMLAudioElement
@@ -34,9 +34,9 @@ export function AudioPlayer({ source, children }: Props) {
     }))
   }, [])
 
-  const play = useCallback(() => (setPlaybackState('playing'), audioRef.current?.play()), [])
+  const play = useCallback(() => (setPlaybackState(PB.PLAYING), audioRef.current?.play()), [])
 
-  const pause = useCallback(() => (setPlaybackState('paused'), audioRef.current?.pause()), [])
+  const pause = useCallback(() => (setPlaybackState(PB.PAUSED), audioRef.current?.pause()), [])
 
   const setTime = useCallback<TAudioPlayerContext['actions']['setTime']>((updater) => {
     if (audioRef.current) {
